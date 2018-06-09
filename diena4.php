@@ -5,7 +5,10 @@
 
 class Human
 {	
-	
+	// protected
+	// private
+	public $first_name = "Joe";
+	public $last_name;
 
 
 	public function getFirstName(){
