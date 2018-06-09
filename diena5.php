@@ -39,6 +39,9 @@ class Device{
 }
 
 class Microphone extends Device{
+
+	public $color;
+
 	function __construct(){
 		parent::__construct();
 		print("Child Construction!");
@@ -60,5 +63,20 @@ $mikrofons = new Microphone();
 $mikrofons->setYear(2016);
 $mikrofons->setManufacturer("Samsung");
 print($mikrofons->getFullInfo());
+
+$servername = "localhost";
+$username = "root";
+$password = "root";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=sveiksSQL", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully"; 
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
 
 
