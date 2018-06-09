@@ -35,12 +35,21 @@ class Device{
 
 }
 
+class Microphone extends Device{
+	public function getFullInfo(){
+		return ($this->company . " " . $this->year . " ( mikrofons! ) ");
+	}
+}
 
-$device = new Device();
-$device->setYear(2017);
-$device->setManufacturer("Siemens");
-print($device->getFullInfo());
-var_dump(Device::getAllManufacturers());
 
+// $device = new Device();
+// $device->setYear(2017);
+// $device->setManufacturer("Siemens");
+// print($device->getFullInfo());
+// var_dump(Device::getAllManufacturers());
+$mikrofons = new Microphone();
+$mikrofons->setYear(2016);
+$mikrofons->setManufacturer("Samsung");
+print($mikrofons->getFullInfo());
 
 
