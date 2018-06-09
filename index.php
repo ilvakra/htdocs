@@ -1,7 +1,9 @@
 <meta http-equiv="refresh" content="5; URL=localhost:8888">
 
+
 <?php
 
+echo("Hello");
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
