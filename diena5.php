@@ -8,10 +8,11 @@ class Device{
 	public $year;
 	public $manufacturer;
 	public static $all_manufacturers;
+	public $id;
 	// protected $servername etc
 
 
-	function __construct(){
+	function __construct($id = 1){
 		print("Parent Construction!");
 
 		$servername = "localhost";
@@ -22,7 +23,7 @@ class Device{
 		$conn = mysqli_connect($servername, $username, $password, $db);
 
 
-		$sql = "SELECT * FROM `microphones` where id=3";
+		$sql = "SELECT * FROM `microphones` where id=$id";
 
 		$result = $conn->query($sql);
 		// var_dump($result);
@@ -77,10 +78,9 @@ class Microphone extends Device{
 
 	public $color;
 
-	function __construct(){
+	function __construct($id = null){
 		parent::__construct();
-		print("Child Construction!");
-		parent::__construct();
+		print("Child Construction! ");
 	}
 
 	public function getFullInfo(){
@@ -94,7 +94,7 @@ class Microphone extends Device{
 // $device->setManufacturer("Siemens");
 // print($device->getFullInfo());
 // var_dump(Device::getAllManufacturers());
-$mikrofons = new Microphone();
+$mikrofons = new Microphone('1');
 // $mikrofons->setYear(2016);
 // $mikrofons->setManufacturer("Samsung");
 print($mikrofons->getFullInfo());
