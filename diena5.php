@@ -76,12 +76,10 @@ try {
     $conn = mysqli_connect($servername, $username, $password, $db);
 
 
-
 	$sql = "SELECT * FROM `microphones`";
 
 	$result = $conn->query($sql);
-	$result2 = $conn->query($sql);
-	var_dump($result2);
+	var_dump($result);
 	if($result->num_rows>0){
 		echo('Ir rezultāts');
 	}
@@ -89,7 +87,9 @@ try {
 		echo("Nav rezultāts");
 	}
 
-mysqli_close($conn);
+	mysqli_close($conn);
+
+
     }
 catch(PDOException $e)
     {
