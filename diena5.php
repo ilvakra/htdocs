@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
 class Device{
 
 	public $year;
@@ -67,16 +70,34 @@ print($mikrofons->getFullInfo());
 $servername = "localhost";
 $username = "root";
 $password = "root";
+$db = "sveiksSQL";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=sveiksSQL", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
+
+
+
+
+	$sql = "SELECT * FROM `microphones`";
+
+	$result = $conn->query($sql);
+	$result2 = $conn->query($sql);
+	var_dump($result2);
+	if($result->num_rows>0){
+		echo('Ir rezultāts');
+	}
+	else{
+		echo("Nav rezultāts");
+	}
+
+
     }
 catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
     }
+
 
 
