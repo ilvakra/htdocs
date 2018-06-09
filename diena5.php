@@ -8,9 +8,41 @@ class Device{
 	public $year;
 	public $manufacturer;
 	public static $all_manufacturers;
+	// protected $servername etc
+
 
 	function __construct(){
 		print("Parent Construction!");
+
+		$servername = "localhost";
+		$username = "root";
+		$password = "root";
+		$db = "sveiksSQL";
+
+		$conn = mysqli_connect($servername, $username, $password, $db);
+
+
+		$sql = "SELECT * FROM `microphones` where id=3";
+
+		$result = $conn->query($sql);
+		// var_dump($result);
+		if($result->num_rows>0){
+			// echo('Ir rezultāts! - - - - - ');
+
+	   		while($row = $result->fetch_assoc()) 
+	   		{
+
+	   			// var_dump($row);
+	   			$this->setYear($row['year']);
+	   			$this->setManufacturer($row['manufacturer']);
+	   		}
+	        
+	    
+		}
+		else{
+			echo("Nav rezultāts");
+		}
+
 	}
 	
 	public function getYear(){
@@ -63,45 +95,8 @@ class Microphone extends Device{
 // print($device->getFullInfo());
 // var_dump(Device::getAllManufacturers());
 $mikrofons = new Microphone();
-$mikrofons->setYear(2016);
-$mikrofons->setManufacturer("Samsung");
+// $mikrofons->setYear(2016);
+// $mikrofons->setManufacturer("Samsung");
 print($mikrofons->getFullInfo());
-
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$db = "sveiksSQL";
-
-try {
-    $conn = mysqli_connect($servername, $username, $password, $db);
-
-
-	$sql = "SELECT * FROM `microphones` where id=1";
-
-	$result = $conn->query($sql);
-	var_dump($result);
-	if($result->num_rows>0){
-		echo('Ir rezultāts! - - - - - ');
-
-   		while($row = $result->fetch_assoc()) {
-
-   			var_dump($row);
-   		}
-        
-    
-	}
-	else{
-		echo("Nav rezultāts");
-	}
-
-	mysqli_close($conn);
-
-
-    }
-catch(Exception $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
-
 
 
