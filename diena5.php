@@ -5,8 +5,24 @@ class Device{
 
 	public $year;
 	public $manufacturer;
-	// ražotājs
-	// gads
+	
+	public function getYear(){
+		return $this->year;
+	}
+	public function setYear($year){
+		$this->year = $year;
+	}
+
+	public function getManufacturer(){
+		return $this->company;
+	}
+	public function setManufacturer($company){
+		$this->company = $company;
+	}
+
+	public function getFullInfo(){
+		return ($this->company . " " . $this->year);
+	}
 
 }
 
