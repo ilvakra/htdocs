@@ -12,7 +12,7 @@ class Device{
 	// protected $servername etc
 
 
-	function __construct($id = 1){
+	function __construct($id = null){
 		print("Parent Construction!");
 
 		$servername = "localhost";
@@ -54,14 +54,14 @@ class Device{
 	}
 
 	public function getManufacturer(){
-		return $this->company;
+		return $this->manufacturer;
 	}
-	public function setManufacturer($company){
-		$this->company = $company;
+	public function setManufacturer($manufacturer){
+		$this->manufacturer = $manufacturer;
 	}
 
 	public function getFullInfo(){
-		return ($this->company . " " . $this->year);
+		return ($this->manufacturer . " " . $this->year);
 	}
 
 	public static function getAllManufacturers(){
@@ -78,13 +78,8 @@ class Microphone extends Device{
 
 	public $color;
 
-	function __construct($id = null){
-		parent::__construct();
-		print("Child Construction! ");
-	}
-
 	public function getFullInfo(){
-		return ($this->company . " " . $this->year . " ( mikrofons! ) ");
+		return ($this->manufacturer . " " . $this->year . " ( mikrofons! ) ");
 	}
 }
 
@@ -94,7 +89,7 @@ class Microphone extends Device{
 // $device->setManufacturer("Siemens");
 // print($device->getFullInfo());
 // var_dump(Device::getAllManufacturers());
-$mikrofons = new Microphone('1');
+$mikrofons = new Microphone(3);
 // $mikrofons->setYear(2016);
 // $mikrofons->setManufacturer("Samsung");
 print($mikrofons->getFullInfo());
