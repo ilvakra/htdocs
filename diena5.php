@@ -1,11 +1,14 @@
 <?php
 
-
 class Device{
 
 	public $year;
 	public $manufacturer;
 	public static $all_manufacturers;
+
+	function __construct(){
+		print("Parent Construction!");
+	}
 	
 	public function getYear(){
 		return $this->year;
@@ -36,6 +39,12 @@ class Device{
 }
 
 class Microphone extends Device{
+	function __construct(){
+		parent::__construct();
+		print("Child Construction!");
+		parent::__construct();
+	}
+
 	public function getFullInfo(){
 		return ($this->company . " " . $this->year . " ( mikrofons! ) ");
 	}
