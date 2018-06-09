@@ -76,12 +76,19 @@ try {
     $conn = mysqli_connect($servername, $username, $password, $db);
 
 
-	$sql = "SELECT * FROM `microphones`";
+	$sql = "SELECT * FROM `microphones` where id=1";
 
 	$result = $conn->query($sql);
 	var_dump($result);
 	if($result->num_rows>0){
-		echo('Ir rezultāts');
+		echo('Ir rezultāts! - - - - - ');
+
+   		while($row = $result->fetch_assoc()) {
+
+   			var_dump($row);
+   		}
+        
+    
 	}
 	else{
 		echo("Nav rezultāts");
@@ -91,7 +98,7 @@ try {
 
 
     }
-catch(PDOException $e)
+catch(Exception $e)
     {
     echo "Connection failed: " . $e->getMessage();
     }
