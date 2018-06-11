@@ -58,6 +58,7 @@ class Device{
 	}
 	public function setManufacturer($manufacturer){
 		$this->manufacturer = $manufacturer;
+		
 	}
 
 	public function getFullInfo(){
