@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diena 7</title>
+</head>
+<body>
+
+<h1>Forma</h1>
+
+<form>
+	
+	<label for="fname">Tavs vārds?</label>
+	<input type="text" name="fname" placeholder="Anna" required>
+
+	<br>
+
+	<label for="age">Tavs vecums</label>
+	<input class="accent" type="number" name="age" step="0.5" min="18" max="100" value="19">
+	<br>
+
+	<label for="email">E-pasts</label>
+	<input type="email" name="email" minlength="6">
+
+	<br>
+
+	<label for="password">Vēlamā parole</label>
+	<input type="password" name="password" minlength="3">
+
+	<br> 
+
+	<textarea name="content" placeholder="some text">some real text</textarea>
+
+	<br>
+
+	<label for="gender">
+		Dzimums:
+	</label>	
+
+	<label>
+		<input type="radio" name="gender" value="f">
+		Female
+	</label>
+
+	<label>
+		<input type="radio" name="gender" value="m">
+		Male
+	</label>
+
+	<br>
+
+	<label for="agreements">
+		Lūdzu, apstiprini, ka piekrīti:
+	</label>
+
+	<label>
+		<input type="checkbox" name="agreements" value="read">
+		I did read
+	</label>
+	
+
+	<label>
+		<input type="checkbox" name="agreements" value="agree">
+		I do agree
+	</label>
+
+	<br>
+
+	<select name="type">
+		<option></option>
+		<option value="bug">Bug</option>
+		<option value="notice">Notice</option>
+	</select>
+
+	<br>
+
+	<button type="button">- Saglabāt</button>
+	<button type="submit">+ Saglabāt</button>
+
+</form>
+
+
+</body>
+</html>
