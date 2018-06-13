@@ -1,0 +1,35 @@
+body{
+	background-color: lightblue;
+}
+
+div{
+	width: 400px;
+	height: 200px;
+	background-color: orange;
+	border:2px solid red;
+}
+
+div:nth-child(2) {
+	background-color: green;
+}
+div:nth-child(3) {
+	background-color: yellow;
+}
+
+#div2{
+	position: absolute;
+    top: 50px;
+    width: auto;
+    left: 100px;
+    height: auto;
+    right: 100px;
+    bottom: 0px;
+}
+#div2{
+	position: fixed;
+    top: 0px;
+    height: 100px;
+    width: 100%;
+    left: 0px;
+}
+
