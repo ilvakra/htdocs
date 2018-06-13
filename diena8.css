@@ -32,4 +32,24 @@ div:nth-child(3) {
     width: 100%;
     left: 0px;
 }
+/* active, hover (focus), visit, link 
+LOVE HATE LoVe HAte
+https://css-tricks.com/remember-selectors-with-love-and-hate/
+*/
+a{
+	text-decoration: none;
+}
 
+a:link{
+	text-transform: uppercase;
+	font-size: 40px;
+}
+a:visited{
+
+}
+a:hover, a:focus{
+
+}
+a:active{
+
+}
