@@ -3,124 +3,98 @@
 <head>
     <title>Welcome!</title>
 
-    <style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-        /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-        nav{
-            background-color: lightblue;
-        }
-        ul{
-            padding-left: 0px;
-            display: flex;
-        }
-        li{
-            flex: 1;
-            display: inline-block;
-        }
-        li:nth-child(1){
-            flex: 3;
-        }
-        a{  
-            /*padding: 10px 20px 10px 20px;*/
-            padding: 10px 20px;
-            display: inline-block;
-            border: 1px solid #000;        
-        }
-
-        .container{
-            width: 80%;
-            margin-left: 10%;
-            min-height: 300px;
-            background-color: #eee;
-
-        }
-        .container:hover{
-            -webkit-transition: 100px 2s; /* Safari */
-    transition: 100px 2s;
-        }
-
-        @media only screen and (max-width: 500px) 
-        {
-            .container { 
-                width: 100%;
-                margin-left: 0px;
-            }
-        }
-    </style>
 </head>
+
 <body>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="https://qph.fs.quoracdn.net/main-qimg-92822f563a92ee06c81c6e7f1d7a2b0c" alt="First slide">
+      </div>
+      <div class="carousel-item">
+          <img class="d-block w-100" src="https://i.ytimg.com/vi/v5KzBPUEgGQ/maxresdefault.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+          <img class="d-block w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfO3N7VeJgDHJr_7JWTVycrUInYuKxKclzxgYWaQPc2N0WdvKV" alt="Third slide">
+      </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
+
+
+
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+<button type="button" class="btn btn-warning">Warning</button>
+
+
+<table class="table table-striped">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+</table>
+
 
 <?php
 $navigation=['welcome'=>'/galadarbs/public', 'about'=>'/diena1.php', 'contact'=>'/diena1.php'];
 ?>
 <nav>
     <ul>
-   <?php
+     <?php
 
-        foreach ($navigation as $name => $url) 
-        {
-            echo("<li><a href='$url'>$name</a></li>");
+     foreach ($navigation as $name => $url) 
+     {
+        echo("<li><a href='$url'>$name</a></li>");
 
             // echo('<li><a href="$url">$name</a></li>');
 
             // echo('<li><a href="'.$url.'">'.$name.'</a></li>');
-        }
-   ?> 
-    </ul>
+    }
+    ?> 
+</ul>
 </nav>
 
 <div class="container">
-    
+
 </div>
 
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
