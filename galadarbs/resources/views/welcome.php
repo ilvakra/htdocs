@@ -53,7 +53,7 @@ $navigation=['welcome'=>'/galadarbs/public', 'about'=>'/diena1.php', 'contact'=>
 
 
     <div class="row">
-        <div class="col-12 bg-info">
+        <div class="col-12 bg-info col-md-4 col-lg-2">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -61,7 +61,7 @@ $navigation=['welcome'=>'/galadarbs/public', 'about'=>'/diena1.php', 'contact'=>
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
-        <div class="col-6 bg-success">
+        <div class="col-12 col-sm-6 col-md-4  col-lg-2 offset-lg-3 bg-success">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -69,7 +69,7 @@ $navigation=['welcome'=>'/galadarbs/public', 'about'=>'/diena1.php', 'contact'=>
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
-        <div class="col-6 bg-primary">
+        <div class="col-12 col-sm-6 col-md-4  col-lg-2 offset-lg-3 bg-primary">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
