@@ -8,11 +8,15 @@
 </head>
 
 <body>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+    <img class="w-50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfO3N7VeJgDHJr_7JWTVycrUInYuKxKclzxgYWaQPc2N0WdvKV" alt="Third slide">
+
+
+    <div id="mansKaruselis" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#mansKaruselis" data-slide-to="0" class="active"></li>
+        <li data-target="#mansKaruselis" data-slide-to="1"></li>
+        <li data-target="#mansKaruselis" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -45,8 +49,9 @@
 </div>
 <button type="button" class="btn btn-warning">Warning</button>
 
+aaa bbbb <span class="d-block m-5 bg-dark py-5 px-3 ">ccc</span> ddd
 
-<table class="table table-striped">
+<table class="table table-striped bg-warning text-white text-center">
     <tr>
         <td>1</td>
         <td>2</td>
