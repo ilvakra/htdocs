@@ -13,9 +13,17 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 Route::get('/login', function(){
 	return view('auth/login');
-});
+})->name('auth.login');
+
+Route::get('/about', function(){
+	return 'about';
+})->name('about');
+
+Route::get('/carreers', function(){
+	return 'carreers';
+})->name('carreers');

@@ -11,10 +11,17 @@
 
 
 <header class="bg-dark text-light">
-        <?php
-$navigation=['welcome'=>'/galadarbs/public', 'about'=>'/diena1.php', 'contact'=>'/diena1.php'];
+<?php
+$navigation=[
+    'welcome'=>route('home'), 
+    'login'=>route('auth.login'), 
+    'carreers'=>route('carreers'), 
+    'about'=>route('about')
+];
+
 ?>
     
+
    
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
