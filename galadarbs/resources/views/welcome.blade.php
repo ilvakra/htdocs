@@ -11,18 +11,17 @@
 
 
 <header class="bg-dark text-light">
-<?php
-$navigation=[
-    'welcome'=>route('home'), 
-    'login'=>route('auth.login'), 
-    'carreers'=>route('carreers'), 
-    'about'=>route('about')
-];
+@if(isset($name))
+    {{ $name }}
+@endif    
+<!--     @if(1 + 1 == 2)
+        yay
+    @elseif(1+1 == 3)
+        tf
+    @else
+        nay
+    @endif -->
 
-?>
-    
-
-   
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,21 +31,16 @@ $navigation=[
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
-        <?php
+        @foreach($navigation as $name => $url)
+        <li class="nav-item">
+            <a 
+                class="nav-link {{ (url()->current() == $url) ? 'active'  : '' }}" 
+                href="{{$url}}">
+                {{$name}}
+            </a>
+        </li>
+        @endforeach
 
-         foreach ($navigation as $name => $url) 
-             {
-
-                echo('
-                    <li class="nav-item active">
-                        <a class="nav-link '.  
-                        ( ($_SERVER['REQUEST_URI'] == $url ) 
-                            ? 'active' 
-                            : ''  ) 
-                        .'" href="'.$url.'">'.$name.'</a>
-                    </li>
-                  ');    
-        } ?> 
 
     
     </ul>
