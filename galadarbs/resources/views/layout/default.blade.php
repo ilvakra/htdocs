@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome!</title>
+    <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
@@ -16,32 +16,7 @@
     @else
         nay
     @endif -->
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-        @foreach($navigation as $name => $url)
-        <li class="nav-item">
-            <a 
-                class="nav-link {{ (url()->current() == $url) ? 'active'  : '' }}" 
-                href="{{$url}}">
-                {{$name}}
-            </a>
-        </li>
-        @endforeach
-
-
-    
-    </ul>
-  </div>
-</nav>
-
+    @include('layout.navigation')
 
 </header>
 

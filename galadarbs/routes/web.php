@@ -10,30 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-function navigation(){
-	$navigation=[
-	    'welcome'=> route('home'), 
-	    'login'=> route('auth.login'), 
-	    'carreers'=> route('carreers'), 
-	    'about'=> route('about')
-	];
 
-	return $navigation;
-}
 
 
 Route::get('/', function () {
-
-	
-
-    return view('welcome', ['navigation' => navigation(), 'name'=>'rcs']);
-
+    return view('welcome');
 })->name('home');
 
 
 Route::get('/login', function(){
-	return view('auth/login', ['navigation' => navigation(), 'name'=>'rcs']);
+	return view('auth/login');
 })->name('auth.login');
+
+Route::get('/register', function(){
+	return view('auth/register');
+})->name('auth.register');
+
 
 Route::get('/about', function(){
 	return 'about';
