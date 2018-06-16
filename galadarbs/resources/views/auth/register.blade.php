@@ -1,7 +1,8 @@
 @extends('layout/default')
 
 @section('content')
-	<form>
+	<form method="post">
+    @csrf
 
   <?php 
     $fields = [
@@ -19,10 +20,13 @@
     </div>
   @endforeach
 
+  <button type="submit" class="btn btn-primary">Submit</button>
 
-  -----
+</form>
+@endsection
 
-  <div class="form-group">
+
+ <!--  <div class="form-group">
     <label for="name">Enter your name</label>
     <input type="text" class="form-control" name="name" required>
   </div>
@@ -45,8 +49,4 @@
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-
-</form>
-@endsection
+  </div> -->

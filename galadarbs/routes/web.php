@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,26 @@ Route::get('/login', function(){
 Route::get('/register', function(){
 	return view('auth/register');
 })->name('auth.register');
+
+Route::post('/register', function(){
+
+	// var_dump($_POST);
+	// echo($_POST['email']);
+
+	$user = new User();
+	$user->name = $_POST['name'];
+	$user->email = $_POST['email'];
+	$user->password = $_POST['password'];
+	$user->save();
+	
+	dd($user);
+
+
+	// var_dump(request()->all());
+	// echo(request()->input('email'));
+
+	return;
+});
 
 
 Route::get('/about', function(){
