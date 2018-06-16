@@ -1,6 +1,10 @@
 @extends('layout/default')
 
 @section('content')
+
+  @if( session('error') )
+    {{ session('error') }}
+  @endif
 	<form method="post">
     @csrf
 
@@ -16,7 +20,12 @@
   @foreach($fields as $field => $type)
     <div class="form-group">
       <label for="{{ $field }}">Enter your {{ $field }}</label>
-      <input type="{{ $type }}" class="form-control" name="{{ $field }}" required>
+      <input 
+        type="{{ $type }}" 
+        class="form-control" 
+        name="{{ $field }}" 
+        value="{{ old($field) }}" 
+        required>
     </div>
   @endforeach
 

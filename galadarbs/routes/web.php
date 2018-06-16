@@ -33,12 +33,27 @@ Route::post('/register', function(){
 	// var_dump($_POST);
 	// echo($_POST['email']);
 
+	$existing = User::where('email', '=', $_POST['email'])->count();
+
+	if($_POST['password'] !== $_POST['password_confirmation']){
+		return redirect()
+				->back()
+				->withInput()
+				->with(['error' => 'Paroles nesakrīt!']);
+	}
+	else if($existing>0){
+		return redirect()
+				->back()
+				->withInput()
+				->with(['error' => 'Nederīgs e-pasts!']);
+	}
+
 	$user = new User();
 	$user->name = $_POST['name'];
 	$user->email = $_POST['email'];
 	$user->password = $_POST['password'];
 	$user->save();
-	
+
 	dd($user);
 
 
