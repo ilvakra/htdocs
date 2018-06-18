@@ -1,7 +1,6 @@
 <?php
 
 use App\User;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +23,34 @@ Route::get('/login', function(){
 	return view('auth/login');
 })->name('auth.login');
 
+
+Route::get('/login2', 'MyController@index');
+
+
+
+Route::post('/login', function(){
+
+	$user = ( Auth::attempt(
+		[
+		'email'	=> $_POST['email'],
+		'password'	=> $_POST['password']
+		]
+	) );
+
+	if( isset($user) ){
+		dd($user);
+		return 'You authed in!';	
+	}
+	else
+	{
+		return redirect()
+				->back()
+				->withInput()
+				->with(['error' => 'Nepareizs e-pasts vai parole!']);
+	}
+	
+});
+
 Route::get('/register', function(){
 	return view('auth/register');
 })->name('auth.register');
@@ -36,16 +63,16 @@ Route::post('/register', function(){
 	$existing = User::where('email', '=', $_POST['email'])->count();
 
 	if($_POST['password'] !== $_POST['password_confirmation']){
-		return redirect()
-				->back()
-				->withInput()
-				->with(['error' => 'Paroles nesakrīt!']);
+		$error = 'Paroles nesakrīt!';
 	}
 	else if($existing>0){
+		$error = 'Nederīgs e-pasts!';
+	}
+	if(isset($error)){
 		return redirect()
 				->back()
 				->withInput()
-				->with(['error' => 'Nederīgs e-pasts!']);
+				->with(['error' => $error]);
 	}
 
 	$user = new User();
@@ -54,13 +81,7 @@ Route::post('/register', function(){
 	$user->password = $_POST['password'];
 	$user->save();
 
-	dd($user);
-
-
-	// var_dump(request()->all());
-	// echo(request()->input('email'));
-
-	return;
+	return redirect( route('auth.login') );
 });
 
 
@@ -71,3 +92,5 @@ Route::get('/about', function(){
 Route::get('/carreers', function(){
 	return 'carreers';
 })->name('carreers');
+
+Route::resource('tasks', 'TaskController');
