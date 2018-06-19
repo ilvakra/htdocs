@@ -1,7 +1,7 @@
 @extends('layout/default')
 
 @section('content')
-<div class="btn btn-success btn-lg d-block">Yay!</div>
+<div class="btn btn-success btn-lg d-block" id="myBtn">Yay!</div>
 <div class="row">
     <div class="col-12 bg-info col-md-4 col-lg-2 col-xl-6 ">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -33,6 +33,7 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
 </div>
+
 
 <article>
     <header></header>
