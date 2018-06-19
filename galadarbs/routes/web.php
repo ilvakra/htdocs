@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use \Auth as Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,19 +31,15 @@ Route::get('/login2', 'MyController@index');
 
 Route::post('/login', function(){
 
-	$user = ( Auth::attempt(
-		[
-		'email'	=> $_POST['email'],
-		'password'	=> $_POST['password']
-		]
-	) );
+	$user = User::where('email', $_POST['email'])
+		->where('password', $_POST['password'])
+		->first();
 
-	if( isset($user) ){
-		dd($user);
-		return 'You authed in!';	
+	if(isset($user)){
+		Auth::login($user);
+		return redirect(route('home'));
 	}
-	else
-	{
+	else {
 		return redirect()
 				->back()
 				->withInput()

@@ -21,6 +21,14 @@
 </header>
 
 <main class="container bg-warning">
+    <?php if(Auth::user()){
+        echo("Sveiki, ".Auth::user()->name);
+    }   ?>
+    <br>
+    @if(Auth::user())
+    Sveiki, {{ Auth::user()->name }}
+    @endif
+
     <!-- @yield('content') -->
 
     @section('content')
