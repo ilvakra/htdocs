@@ -25,7 +25,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return redirect(route('tasks.show', $task));
+        return view('tasks.create');
     }
 
     /**
@@ -42,8 +42,8 @@ class TaskController extends Controller
         $task->hours = $request['hours'];
         $task->description = $request['description'];
         $task->save();
-
-        return redirect(route('tasks.index'));
+        
+        return redirect(route('tasks.show', $task));
 
         //
     }
@@ -97,5 +97,12 @@ class TaskController extends Controller
     {
         $task->delete();
         return redirect(route('tasks.index'));
+    }
+
+    public function search(Request $request)
+    {
+        $tasks = Task::where('name', 'like', '%'.$request['name'].'%')->get();
+
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 }

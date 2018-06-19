@@ -62,11 +62,19 @@
         // var paragraphs = document.getElementsByTagName("div");
         // console.log(paragraphs);
 
-        // var fourColumns = document.getElementsByClassName('col-4');
-        // console.log(fourColumns);
+        var fourColumns = [ document.getElementsByTagName('li') ];
+        console.log(fourColumns);
+        fourColumns.forEach(function(element) {
+          console.log("element: "  + element);
+        });
 
-        var element = document.getElementById('navbarSupportedContent');
-        console.log(element);
+        for(i = 0; i < fourColumns.length; i++)
+        {
+            console.log("This also works: " + fourColumns[i].value);
+        }
+
+        // var element = document.getElementById('navbarSupportedContent');
+        // console.log(element);
 
         // setTimeout( 
         //     function(){
@@ -75,24 +83,24 @@
         //     3000
         // );
 
-        // var flag = 0;
-        var i = 0;
-        var myInterval = setInterval( 
-            function(){
-                console.log(1);
-                // if (flag == false){
-                //     element.innerHTML = i++;
-                // }
-                element.innerHTML = i++;
-            }, 
-            1000
-        );
+        // // var flag = 0;
+        // var i = 0;
+        // var myInterval = setInterval( 
+        //     function(){
+        //         console.log(1);
+        //         // if (flag == false){
+        //         //     element.innerHTML = i++;
+        //         // }
+        //         element.innerHTML = i++;
+        //     }, 
+        //     1000
+        // );
 
-        // console.log(document.getElementsByClassName("btn")[0]);
-        document.getElementsByClassName("btn")[0].addEventListener("click", function(){
-                // flag=1;
-                clearInterval(myInterval);
-        });
+        // // console.log(document.getElementsByClassName("btn")[0]);
+        // document.getElementsByClassName("btn")[0].addEventListener("click", function(){
+        //         // flag=1;
+        //         clearInterval(myInterval);
+        // });
 
     </script>
 </body>

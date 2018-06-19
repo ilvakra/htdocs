@@ -94,3 +94,4 @@ Route::get('/carreers', function(){
 })->name('carreers');
 
 Route::resource('tasks', 'TaskController');
+Route::post('/tasks/search', 'TaskController@search')->name('tasks.search');
