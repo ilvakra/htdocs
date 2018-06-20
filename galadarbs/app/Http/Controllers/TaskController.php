@@ -103,6 +103,6 @@ class TaskController extends Controller
     {
         $tasks = Task::where('name', 'like', '%'.$request['name'].'%')->get();
 
-        return view('tasks.index', ['tasks' => $tasks]);
+        return response()->json($tasks);
     }
 }

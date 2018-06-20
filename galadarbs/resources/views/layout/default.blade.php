@@ -55,17 +55,30 @@
 
     <script type="text/javascript">
 
-        // document.getElementById('navbarSupportedContent').innerHTML = "1";
-        $('#navbarSupportedContent').html(1);
+       $('#jsSearch').on('click', function(){
 
-        $('div').html('this is a div!');
-        $('div').addClass('bg-dark');
-        setInterval(function(){
+            $.post(
+                 "{{ route('tasks.search') }}",
+                $('#myTaskForm').serialize(),
+                function(
+                    returnData,
+                    status,
+                    xhr){
 
-         $('div').toggleClass('bg-dark');
-        }, 2000);
+                    $('ul').html('');
 
-        console.log($('#navbarSupportedContent'));
+                    for(i = 0; i<returnData.length; i++)
+                    {
+                        console.log(returnData[i]);
+                        var element = "<li>" + returnData[i].name+"</li>";
+                        $('ul').html( $('ul').html()+element );
+
+                    }
+
+                });
+
+
+       });
     </script>
 </body>
 

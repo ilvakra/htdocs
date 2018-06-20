@@ -4,11 +4,12 @@
 
 <a href="{{ route('tasks.create') }}" class="btn btn-primary">Create new</a>
 
-		<form method="post" action="{{ route('tasks.search') }}">
+		<form method="post" action="{{ route('tasks.search') }}" id="myTaskForm">
 	 		@csrf
 	 		<input type="text" name="name">
 
 	 		<button type="submit" class="btn btn-primary">Meklēt</button>
+	 		<button type="button" class="btn btn-success" id="jsSearch">Meklēt ar js/jquery</button>
 	 	</form>
 
 <ul>
