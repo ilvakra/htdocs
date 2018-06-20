@@ -12,18 +12,32 @@
 $navigation=[
         'welcome'=> route('home'), 
         'login'=> route('auth.login'), 
+        'logout'=> '', 
         'carreers'=> route('carreers'), 
         'about'=> route('about')
     ];
 ?>
         @foreach($navigation as $name => $url)
-        <li class="nav-item">
-            <a 
-                class="nav-link {{ (url()->current() == $url) ? 'active'  : '' }}" 
-                href="{{$url}}">
-                {{$name}}
-            </a>
-        </li>
+
+
+          @if( 
+              ($name != 'logout' && $name != 'login' ) 
+            || 
+              ( Auth::user() && $name=='logout' ) 
+            || 
+              ( !Auth::user() && $name=="login")  
+            )
+        
+            <li class="nav-item">
+                <a 
+                    class="nav-link {{ (url()->current() == $url) ? 'active'  : '' }}" 
+                    href="{{$url}}">
+                    {{$name}}
+                </a>
+            </li>
+
+          @endif
+
         @endforeach
 
 
