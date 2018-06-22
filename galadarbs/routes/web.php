@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Leaderboard;
 use \Auth as Auth;
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,22 @@ use \Auth as Auth;
 |
 */
 
+Route::get('/leaderboard', function(){
+	$leaderboards = Leaderboard::all();
 
+	return "<div class='item'></div>";
+
+	dd($leaderboards);
+	return view('leaderboard.form');
+})->name('index.leaderboard');
+
+Route::post('/leaderboard-new', function(){
+	$leaderboard = new Leaderboard();
+	$leaderboard->user_id = $_POST['leaderboard'];
+	$leaderboard->time = $_POST['time'];
+	$leaderboard->save();
+	return redirect( route('index.leaderboard') );
+})->name('create.leaderboard');
 
 Route::get('/', function () {
     return view('welcome');
