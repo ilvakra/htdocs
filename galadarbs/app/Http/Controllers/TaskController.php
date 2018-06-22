@@ -42,6 +42,18 @@ class TaskController extends Controller
         $task->hours = $request['hours'];
         $task->description = $request['description'];
         $task->save();
+
+
+        if (isset($_FILES['picture'])) {
+            $picture = $_FILES['picture']["tmp_name"];
+            try{
+                $name = $_SERVER['DOCUMENT_ROOT']."/galadarbs/public/img/task-".$task->id.".png";
+                move_uploaded_file($picture, $name);
+            }
+            catch(\Exception $e){
+                dd($e->getMessage());
+            }
+        }
         
         return redirect(route('tasks.show', $task));
 

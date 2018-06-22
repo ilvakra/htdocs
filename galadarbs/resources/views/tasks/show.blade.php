@@ -4,7 +4,8 @@
 
 <a href="{{ route('tasks.edit', $task) }}" class="btn btn-primary">Labot</a>
 <h1>{{ $task->name }}, {{ $task->hours }}</h1>
-<p>{{ $task->description }}
+<p>{{ $task->description }}</p>
+<img src="/galadarbs/public/img/task-{{ $task->id }}.png"> 
 
 
 @endsection

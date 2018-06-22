@@ -17,9 +17,7 @@ use \Auth as Auth;
 Route::get('/leaderboard', function(){
 	$leaderboards = Leaderboard::all();
 
-	return "<div class='item'></div>";
-
-	dd($leaderboards);
+	
 	return view('leaderboard.form');
 })->name('index.leaderboard');
 
